@@ -110,10 +110,7 @@
 				720EB3032C3EBD4700A37AD2 /* View */,
 				720EB3042C3EC99E00A37AD2 /* Theme */,
 				720EB30B2C3ECB4E00A37AD2 /* Extensions */,
-				720EB2DC2C3EB6D900A37AD2 /* Assets.xcassets */,
-				720EB2DE2C3EB6D900A37AD2 /* LaunchScreen.storyboard */,
-				720EB2E12C3EB6D900A37AD2 /* Info.plist */,
-				720EB30C2C3ECF0000A37AD2 /* Localizable.xcstrings */,
+				720EB30E2C3F161800A37AD2 /* Resources */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -158,6 +155,17 @@
 				720EB3092C3ECB4400A37AD2 /* Notifications.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		720EB30E2C3F161800A37AD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				720EB2E12C3EB6D900A37AD2 /* Info.plist */,
+				720EB30C2C3ECF0000A37AD2 /* Localizable.xcstrings */,
+				720EB2DC2C3EB6D900A37AD2 /* Assets.xcassets */,
+				720EB2DE2C3EB6D900A37AD2 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +480,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84G5QLRWPP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Movie/Info.plist;
+				INFOPLIST_FILE = Movie/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -505,7 +513,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84G5QLRWPP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Movie/Info.plist;
+				INFOPLIST_FILE = Movie/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
