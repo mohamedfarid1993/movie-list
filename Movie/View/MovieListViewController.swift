@@ -24,9 +24,8 @@ class MovieListViewController: UIViewController {
         
         self.applyCurrentTheme()
         self.addThemeChangerObserver()
+        self.title = String(localized: "movies.screen.title")
     }
-
-
 }
 
 // MARK: - Theme Handling Methods
