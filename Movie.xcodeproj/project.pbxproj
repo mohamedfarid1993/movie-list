@@ -15,6 +15,9 @@
 		720EB2EB2C3EB6D900A37AD2 /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB2EA2C3EB6D900A37AD2 /* MovieTests.swift */; };
 		720EB2F52C3EB6D900A37AD2 /* MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB2F42C3EB6D900A37AD2 /* MovieUITests.swift */; };
 		720EB2F72C3EB6D900A37AD2 /* MovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB2F62C3EB6D900A37AD2 /* MovieUITestsLaunchTests.swift */; };
+		720EB3062C3EC9E000A37AD2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB3052C3EC9E000A37AD2 /* Theme.swift */; };
+		720EB3082C3ECA0E00A37AD2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB3072C3ECA0E00A37AD2 /* ThemeManager.swift */; };
+		720EB30A2C3ECB4400A37AD2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB3092C3ECB4400A37AD2 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		720EB2F02C3EB6D900A37AD2 /* MovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		720EB2F42C3EB6D900A37AD2 /* MovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITests.swift; sourceTree = "<group>"; };
 		720EB2F62C3EB6D900A37AD2 /* MovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		720EB3052C3EC9E000A37AD2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		720EB3072C3ECA0E00A37AD2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		720EB3092C3ECB4400A37AD2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,8 @@
 				720EB2D32C3EB6D800A37AD2 /* AppDelegate.swift */,
 				720EB2D52C3EB6D800A37AD2 /* SceneDelegate.swift */,
 				720EB3032C3EBD4700A37AD2 /* View */,
+				720EB3042C3EC99E00A37AD2 /* Theme */,
+				720EB30B2C3ECB4E00A37AD2 /* Extensions */,
 				720EB2DC2C3EB6D900A37AD2 /* Assets.xcassets */,
 				720EB2DE2C3EB6D900A37AD2 /* LaunchScreen.storyboard */,
 				720EB2E12C3EB6D900A37AD2 /* Info.plist */,
@@ -130,6 +138,23 @@
 				720EB2D72C3EB6D800A37AD2 /* MovieListViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		720EB3042C3EC99E00A37AD2 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				720EB3052C3EC9E000A37AD2 /* Theme.swift */,
+				720EB3072C3ECA0E00A37AD2 /* ThemeManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		720EB30B2C3ECB4E00A37AD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				720EB3092C3ECB4400A37AD2 /* Notifications.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720EB30A2C3ECB4400A37AD2 /* Notifications.swift in Sources */,
 				720EB2D82C3EB6D800A37AD2 /* MovieListViewController.swift in Sources */,
+				720EB3062C3EC9E000A37AD2 /* Theme.swift in Sources */,
+				720EB3082C3ECA0E00A37AD2 /* ThemeManager.swift in Sources */,
 				720EB2D42C3EB6D800A37AD2 /* AppDelegate.swift in Sources */,
 				720EB2D62C3EB6D800A37AD2 /* SceneDelegate.swift in Sources */,
 			);
