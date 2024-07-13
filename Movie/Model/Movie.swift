@@ -22,6 +22,16 @@ struct Movie: CodableInit, Hashable {
     var posterPathURL: URL? {
         URL(string: Constants.NetworkingConfigs.imagesPath + posterPath)
     }
+    
+    var productionYear: String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let date = formatter.date(from: releaseDate) {
+            formatter.dateFormat = "yyyy"
+            return formatter.string(from: date)
+        }
+        return nil
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult, id, title, video

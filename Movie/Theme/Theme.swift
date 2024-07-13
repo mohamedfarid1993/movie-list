@@ -12,11 +12,15 @@ struct Theme {
     let backgroundColor: UIColor
     let textColor: UIColor
     let buttonColor: UIColor
+    let subtitleColor: UIColor
+    let secondaryColor: UIColor
 }
 
 let lightTheme = Theme(
     name: "Light",
     backgroundColor: .white,
     textColor: .black,
-    buttonColor: .blue
+    buttonColor: .blue,
+    subtitleColor: .gray,
+    secondaryColor: .systemGray2
 )
