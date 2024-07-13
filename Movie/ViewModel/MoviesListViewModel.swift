@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 class MoviesListViewModel: ObservableObject {
     enum State: Equatable {
         case loading, loaded(isSearching: Bool), failed(error: Error, genresFetchingFailed: Bool)
@@ -34,7 +33,7 @@ class MoviesListViewModel: ObservableObject {
     @Published var searchedMovies: [Movie] = []
     var isSearching = false
 
-    private var genres: [Genre] = []
+    var genres: [Genre] = []
     private let api: API.Type
     
     // MARK: Initializers

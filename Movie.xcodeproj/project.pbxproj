@@ -48,6 +48,7 @@
 		72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617C2C42B5CB00AC653F /* Genre.swift */; };
 		72A5617F2C42BF8E00AC653F /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */; };
 		72A561832C4307DE00AC653F /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561822C4307DE00AC653F /* EmptyStateView.swift */; };
+		72A561862C4309ED00AC653F /* MoviesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561852C4309ED00AC653F /* MoviesListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		72A5617C2C42B5CB00AC653F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		72A561822C4307DE00AC653F /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		72A561852C4309ED00AC653F /* MoviesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		720EB2E92C3EB6D900A37AD2 /* MovieTests */ = {
 			isa = PBXGroup;
 			children = (
+				72A561842C4309D200AC653F /* ViewModels Tests */,
 				722B402A2C4292FE00130227 /* Networking Tests */,
 			);
 			path = MovieTests;
@@ -355,6 +358,14 @@
 				72A561822C4307DE00AC653F /* EmptyStateView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		72A561842C4309D200AC653F /* ViewModels Tests */ = {
+			isa = PBXGroup;
+			children = (
+				72A561852C4309ED00AC653F /* MoviesListViewModelTests.swift */,
+			);
+			path = "ViewModels Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +548,7 @@
 				722B402D2C4292FE00130227 /* RoutersTests.swift in Sources */,
 				722B402B2C4292FE00130227 /* ImageProviderTests.swift in Sources */,
 				722B402C2C4292FE00130227 /* NetworkLayerTest.swift in Sources */,
+				72A561862C4309ED00AC653F /* MoviesListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
