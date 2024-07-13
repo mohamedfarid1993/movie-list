@@ -40,6 +40,9 @@
 		722B40322C42963200130227 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B40312C42963200130227 /* Movie.swift */; };
 		72A5616A2C429B2800AC653F /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561692C429B2800AC653F /* MoviesListViewModel.swift */; };
 		72A5616C2C429E4800AC653F /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5616B2C429E4800AC653F /* UICollectionView.swift */; };
+		72A5616F2C42A2D800AC653F /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5616E2C42A2D800AC653F /* AnalyticsService.swift */; };
+		72A561712C42A2EE00AC653F /* ConsoleAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561702C42A2EE00AC653F /* ConsoleAnalyticsService.swift */; };
+		72A561732C42A35800AC653F /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561722C42A35800AC653F /* AnalyticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		722B40312C42963200130227 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		72A561692C429B2800AC653F /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		72A5616B2C429E4800AC653F /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		72A5616E2C42A2D800AC653F /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		72A561702C42A2EE00AC653F /* ConsoleAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleAnalyticsService.swift; sourceTree = "<group>"; };
+		72A561722C42A35800AC653F /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 				720EB3042C3EC99E00A37AD2 /* Theme */,
 				720EB30B2C3ECB4E00A37AD2 /* Extensions */,
 				720EB30F2C3F16D300A37AD2 /* Networking */,
+				72A5616D2C42A2C500AC653F /* Analytics */,
 				720EB3322C3F19F800A37AD2 /* Helpers */,
 				720EB30E2C3F161800A37AD2 /* Resources */,
 			);
@@ -301,6 +308,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		72A5616D2C42A2C500AC653F /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				72A5616E2C42A2D800AC653F /* AnalyticsService.swift */,
+				72A561702C42A2EE00AC653F /* ConsoleAnalyticsService.swift */,
+				72A561722C42A35800AC653F /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +459,8 @@
 			files = (
 				720EB32E2C3F189F00A37AD2 /* NetworkManager.swift in Sources */,
 				720EB3342C3F1A0700A37AD2 /* Constants.swift in Sources */,
+				72A561712C42A2EE00AC653F /* ConsoleAnalyticsService.swift in Sources */,
+				72A5616F2C42A2D800AC653F /* AnalyticsService.swift in Sources */,
 				720EB3292C3F189F00A37AD2 /* CodableInit.swift in Sources */,
 				720EB3272C3F189F00A37AD2 /* API.swift in Sources */,
 				720EB30A2C3ECB4400A37AD2 /* Notifications.swift in Sources */,
@@ -452,6 +471,7 @@
 				720EB3062C3EC9E000A37AD2 /* Theme.swift in Sources */,
 				720EB3252C3F189F00A37AD2 /* Response.swift in Sources */,
 				72A5616C2C429E4800AC653F /* UICollectionView.swift in Sources */,
+				72A561732C42A35800AC653F /* AnalyticsManager.swift in Sources */,
 				720EB32D2C3F189F00A37AD2 /* MoviesRouter.swift in Sources */,
 				720EB3082C3ECA0E00A37AD2 /* ThemeManager.swift in Sources */,
 				720EB2D42C3EB6D800A37AD2 /* AppDelegate.swift in Sources */,
