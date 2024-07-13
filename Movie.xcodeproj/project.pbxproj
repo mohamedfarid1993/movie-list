@@ -43,7 +43,6 @@
 		72A5616F2C42A2D800AC653F /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5616E2C42A2D800AC653F /* AnalyticsService.swift */; };
 		72A561712C42A2EE00AC653F /* ConsoleAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561702C42A2EE00AC653F /* ConsoleAnalyticsService.swift */; };
 		72A561732C42A35800AC653F /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561722C42A35800AC653F /* AnalyticsManager.swift */; };
-		72A561762C42A56500AC653F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72A561752C42A56500AC653F /* SnapKit */; };
 		72A561792C42A65A00AC653F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561782C42A65A00AC653F /* MovieCell.swift */; };
 		72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617A2C42B58C00AC653F /* GenresResponse.swift */; };
 		72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617C2C42B5CB00AC653F /* Genre.swift */; };
@@ -117,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72A561762C42A56500AC653F /* SnapKit in Frameworks */,
 				720EB3312C3F18D400A37AD2 /* Kingfisher in Frameworks */,
 				720EB3122C3F178E00A37AD2 /* Alamofire in Frameworks */,
 			);
@@ -367,7 +365,6 @@
 			packageProductDependencies = (
 				720EB3112C3F178E00A37AD2 /* Alamofire */,
 				720EB3302C3F18D400A37AD2 /* Kingfisher */,
-				72A561752C42A56500AC653F /* SnapKit */,
 			);
 			productName = Movie;
 			productReference = 720EB2D02C3EB6D800A37AD2 /* Movie.app */;
@@ -444,7 +441,6 @@
 			packageReferences = (
 				720EB3102C3F178E00A37AD2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				720EB32F2C3F18D400A37AD2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				72A561742C42A56500AC653F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 720EB2D12C3EB6D800A37AD2 /* Products */;
 			projectDirPath = "";
@@ -887,14 +883,6 @@
 				minimumVersion = 7.12.0;
 			};
 		};
-		72A561742C42A56500AC653F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -907,11 +895,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 720EB32F2C3F18D400A37AD2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		72A561752C42A56500AC653F /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 72A561742C42A56500AC653F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
