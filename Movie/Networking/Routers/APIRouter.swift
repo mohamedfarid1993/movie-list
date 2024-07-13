@@ -21,4 +21,9 @@ extension APIRouter: API {
         try await MoviesRouter.getGenres
             .send(GenresResponse.self)
     }
+    
+    static func searchMovies(with text: String, in page: Int) async throws -> MoviesResponse {
+        try await MoviesRouter.searchMovies(text: text, page: page)
+            .send(MoviesResponse.self)
+    }
 }

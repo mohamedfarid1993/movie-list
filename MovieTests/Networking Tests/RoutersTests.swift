@@ -31,4 +31,17 @@ class RoutersTests: XCTestCase {
         XCTAssertEqual(getGenresRequest.path, MoviesRouter.genresPath)
         XCTAssertEqual(getGenresRequest.method, .get)
     }
+    
+    // MARK: Search Movies Request Test
+    
+    func testSearchMoviesRequest() {
+        let page = 2
+        let text = "Batman"
+        let searchMoviesRequest = MoviesRouter.searchMovies(text: text, page: page)
+        
+        XCTAssertEqual(searchMoviesRequest.path, MoviesRouter.searchMoviesPath)
+        XCTAssertEqual(searchMoviesRequest.method, .get)
+        XCTAssertEqual(page, searchMoviesRequest.parameters?[Constants.NetworkingConfigs.pageParameterKey] as? Int)
+        XCTAssertEqual(text, searchMoviesRequest.parameters?[MoviesRouter.moviesSearchQueryKey] as? String)
+    }
 }

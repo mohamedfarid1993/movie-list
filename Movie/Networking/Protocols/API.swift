@@ -10,4 +10,5 @@ import Combine
 protocol API {
     static func getMovies(in page: Int) async throws -> MoviesResponse
     static func getGenres() async throws -> GenresResponse
+    static func searchMovies(with text: String, in page: Int) async throws -> MoviesResponse
 }

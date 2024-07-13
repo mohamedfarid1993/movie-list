@@ -74,6 +74,24 @@ extension MoviesListViewModel {
             }
         }
     }
+    
+    // MARK: Search Movies
+    
+    func searchMovies(with text: String) {
+        guard self.currentPage <= self.totalPages else { return }
+        self.state = .loading
+        Task {
+            do {
+                let response = try await self.api.searchMovies(with: text, in: self.currentPage)
+                self.movies += response.movies
+                self.state = .loaded
+                self.currentPage += 1
+                self.totalPages = response.totalPages
+            } catch {
+                self.state = .failed(error: error, genresFetchingFailed: false)
+            }
+        }
+    }
 }
 
 // MARK: - Data Source

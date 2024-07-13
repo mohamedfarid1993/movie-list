@@ -14,11 +14,14 @@ enum MoviesRouter: URLRequestBuilder {
     
     case getPopularMovies(page: Int)
     case getGenres
+    case searchMovies(text: String, page: Int)
     
     // MARK: Properties
     
     static let moviesPath = "movie/popular"
     static let genresPath = "genre/movie/list"
+    static let searchMoviesPath = "search/movie"
+    static let moviesSearchQueryKey = "query"
 }
 
 extension MoviesRouter {
@@ -29,6 +32,8 @@ extension MoviesRouter {
             return MoviesRouter.moviesPath
         case .getGenres:
             return MoviesRouter.genresPath
+        case .searchMovies:
+            return MoviesRouter.searchMoviesPath
         }
     }
     
@@ -38,6 +43,11 @@ extension MoviesRouter {
             return [Constants.NetworkingConfigs.pageParameterKey: page]
         case .getGenres:
             return [:]
+        case .searchMovies(let text, let page):
+            return [
+                Constants.NetworkingConfigs.pageParameterKey: page,
+                MoviesRouter.moviesSearchQueryKey: text
+            ]
         }
     }
     
