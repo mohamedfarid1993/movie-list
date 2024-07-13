@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     func setRootViewController() {
-        let movieListViewController = MovieListViewController()
+        let movieListViewController = MoviesListViewController(api: APIRouter.self)
         let navigationController = UINavigationController(rootViewController: movieListViewController)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
