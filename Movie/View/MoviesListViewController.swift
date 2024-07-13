@@ -16,7 +16,8 @@ class MoviesListViewController: UIViewController {
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     private var dataSource: UICollectionViewDiffableDataSource<Int, Movie>!
     private var collectionView: UICollectionView!
-    
+    private var searchController: UISearchController!
+
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: Initializers & Deinitializers
@@ -140,8 +141,52 @@ extension MoviesListViewController {
     
     private func addSubviews() {
         self.setupCollectionView()
+        self.setupSearchController()
     }
 }
+
+// MARK: - Search Controller Setup
+
+extension MoviesListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    private func setupSearchController() {
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = String(localized: "Search Movies")
+        self.searchController.searchBar.delegate = self
+        self.navigationItem.searchController = self.searchController
+        self.definesPresentationContext = true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        self.filterContentForSearchText(searchText)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        if searchText.isEmpty {
+            self.updateSnapshot(with: self.viewModel.movies)
+        } else {
+            let filteredMovies = self.viewModel.movies.filter { movie in
+                return movie.title.lowercased().contains(searchText.lowercased())
+            }
+            self.updateSnapshot(with: filteredMovies)
+        }
+    }
+    
+    private func updateSnapshot(with movies: [Movie]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Movie>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(movies)
+        self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.updateSnapshot(with: self.viewModel.movies)
+    }
+}
+
 
 // MARK: - Activity Indicator
 
