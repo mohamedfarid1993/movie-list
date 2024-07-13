@@ -16,25 +16,23 @@ protocol APIRequestHandler: HandleAlamofireResponse {}
 
 extension APIRequestHandler where Self: URLRequestBuilder {
     
-    func send<T: CodableInit>(_ decoder: T.Type) -> AnyPublisher<T, Error> {
-        NetworkManager.session.request(self)
-            .publishData()
-            .tryMap({ response in
-                switch response.result {
-                case .failure:
-                    throw CustomError.networkConnection
-                case .success(let value):
-                    guard let httpURLResponse = response.response else {
-                        throw CustomError.unknown(message: nil, statusCode: nil)
-                    }
-                    return try handleAlamofireResponse(
-                        decoder: decoder,
-                        data: value,
-                        urlrequest: self.urlRequest,
-                        response: httpURLResponse
-                    )
-                }
-            })
-            .eraseToAnyPublisher()
+    func send<T: CodableInit>(_ decoder: T.Type) async throws -> T {
+        let response = await AF.request(self).serializingData().response
+        
+        guard let httpURLResponse = response.response else {
+            throw CustomError.unknown(message: nil, statusCode: nil)
+        }
+        
+        switch response.result {
+        case .success(let value):
+            return try handleAlamofireResponse(
+                decoder: decoder,
+                data: value,
+                urlrequest: self.urlRequest,
+                response: httpURLResponse
+            )
+        case .failure(let error):
+            throw error
+        }
     }
 }

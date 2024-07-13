@@ -16,7 +16,7 @@ enum Constants {
         static let acceptHeaderValue = "application/json"
         static let pageParameterKey = "page"
         static let apiKey = "api_key"
-        static let baseURL = "https://api.themoviedb.org/3"
+        static let baseURL = "https://api.themoviedb.org/3/"
     }
     
     // MARK: Networking Keys

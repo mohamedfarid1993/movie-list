@@ -12,5 +12,8 @@ enum APIRouter {}
 // MARK: - API
 
 extension APIRouter: API {
-    
+    static func getMovies(in page: Int) async throws -> MoviesResponse {
+        try await MoviesRouter.getPopularMovies(page: page)
+            .send(MoviesResponse.self)
+    }
 }

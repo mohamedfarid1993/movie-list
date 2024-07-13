@@ -12,5 +12,7 @@ enum MockAPI { }
 // MARK: - API
 
 extension MockAPI: API {
-    
+    static func getMovies(in page: Int) async throws -> MoviesResponse {
+        MoviesResponse.fake()
+    }
 }

@@ -8,5 +8,5 @@
 import Combine
 
 protocol API {
-    
+    static func getMovies(in page: Int) async throws -> MoviesResponse
 }
