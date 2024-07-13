@@ -47,6 +47,7 @@
 		72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617A2C42B58C00AC653F /* GenresResponse.swift */; };
 		72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617C2C42B5CB00AC653F /* Genre.swift */; };
 		72A5617F2C42BF8E00AC653F /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */; };
+		72A561832C4307DE00AC653F /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561822C4307DE00AC653F /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		72A5617A2C42B58C00AC653F /* GenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresResponse.swift; sourceTree = "<group>"; };
 		72A5617C2C42B5CB00AC653F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		72A561822C4307DE00AC653F /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		720EB3032C3EBD4700A37AD2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72A561812C4307CF00AC653F /* Custom Views */,
 				72A561772C42A64F00AC653F /* Cells */,
 				720EB2D72C3EB6D800A37AD2 /* MoviesListViewController.swift */,
 				72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */,
@@ -344,6 +347,14 @@
 				720EB2D52C3EB6D800A37AD2 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		72A561812C4307CF00AC653F /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				72A561822C4307DE00AC653F /* EmptyStateView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +518,7 @@
 				720EB2D42C3EB6D800A37AD2 /* AppDelegate.swift in Sources */,
 				72A5617F2C42BF8E00AC653F /* MovieDetailsViewController.swift in Sources */,
 				722B40322C42963200130227 /* Movie.swift in Sources */,
+				72A561832C4307DE00AC653F /* EmptyStateView.swift in Sources */,
 				720EB3232C3F189F00A37AD2 /* ImageProvider.swift in Sources */,
 				720EB32B2C3F189F00A37AD2 /* URLRequestBuilder.swift in Sources */,
 				72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */,

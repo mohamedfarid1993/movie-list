@@ -23,8 +23,16 @@
         }
       }
     },
-    "Search Movies" : {
-
+    "search.view.no.movies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Movies Found"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

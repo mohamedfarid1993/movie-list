@@ -17,6 +17,7 @@ class MoviesListViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Int, Movie>!
     private var collectionView: UICollectionView!
     private var searchController: UISearchController!
+    private var emptyStateView = EmptyStateView(message: String(localized: "search.view.no.movies"))
 
     private var subscriptions = Set<AnyCancellable>()
     
@@ -115,17 +116,25 @@ extension MoviesListViewController {
     }
     
     private func handleLoadedSearch() {
+        self.collectionView.backgroundView = nil
         var snapshot = NSDiffableDataSourceSnapshot<Int, Movie>()
-        if self.viewModel.currentSearchedPage > 2 {
+        if self.viewModel.currentSearchedPage > 2 && self.dataSource.snapshot().numberOfSections > 0 {
             snapshot = self.dataSource.snapshot()
             let existingMovies = snapshot.itemIdentifiers
             let newMovies = self.viewModel.searchedMovies.filter { !existingMovies.contains($0) }
             snapshot.appendItems(newMovies)
-        } else {
+        } else if self.viewModel.searchedMovies.count > 0 {
             snapshot.appendSections([0])
             snapshot.appendItems(self.viewModel.searchedMovies)
+        } else {
+            self.handleEmptySearch()
         }
         self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func handleEmptySearch() {
+        self.collectionView.backgroundView = self.emptyStateView
+        self.collectionView.isScrollEnabled = false
     }
     
     private func handleFailed(_ error: Error, _ genresFetchingFailed: Bool) {
@@ -167,7 +176,7 @@ extension MoviesListViewController: UISearchResultsUpdating, UISearchBarDelegate
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = String(localized: "Search Movies")
+        self.searchController.searchBar.placeholder = String(localized: "movies.screen.search.placeholder")
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = self.searchController
         self.definesPresentationContext = true
