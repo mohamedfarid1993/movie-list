@@ -163,16 +163,14 @@
 		720EB2D22C3EB6D800A37AD2 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				720EB2D32C3EB6D800A37AD2 /* AppDelegate.swift */,
-				720EB2D52C3EB6D800A37AD2 /* SceneDelegate.swift */,
+				72A561802C43014600AC653F /* App */,
 				722B402E2C4295FE00130227 /* Model */,
 				720EB3032C3EBD4700A37AD2 /* View */,
 				72A561682C429B0D00AC653F /* ViewModel */,
 				720EB3042C3EC99E00A37AD2 /* Theme */,
-				720EB30B2C3ECB4E00A37AD2 /* Extensions */,
 				720EB30F2C3F16D300A37AD2 /* Networking */,
 				72A5616D2C42A2C500AC653F /* Analytics */,
-				720EB3322C3F19F800A37AD2 /* Helpers */,
+				720EB3322C3F19F800A37AD2 /* Utilities */,
 				720EB30E2C3F161800A37AD2 /* Resources */,
 			);
 			path = Movie;
@@ -285,12 +283,13 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
-		720EB3322C3F19F800A37AD2 /* Helpers */ = {
+		720EB3322C3F19F800A37AD2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				720EB3332C3F1A0700A37AD2 /* Constants.swift */,
+				720EB30B2C3ECB4E00A37AD2 /* Extensions */,
 			);
-			path = Helpers;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		722B402A2C4292FE00130227 /* Networking Tests */ = {
@@ -338,6 +337,15 @@
 				72A561782C42A65A00AC653F /* MovieCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		72A561802C43014600AC653F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				720EB2D32C3EB6D800A37AD2 /* AppDelegate.swift */,
+				720EB2D52C3EB6D800A37AD2 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
