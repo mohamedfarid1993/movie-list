@@ -176,7 +176,7 @@ extension MoviesListViewController {
         
         self.dataSource = UICollectionViewDiffableDataSource<Int, Movie>(collectionView: self.collectionView) { (collectionView, indexPath, movie) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.reuseIdentifier, for: indexPath) as! MovieCell
-            cell.configure(with: movie)
+            cell.configure(with: movie, genres: self.viewModel.getGenres(movie.genreIDS))
             return cell
         }
     }

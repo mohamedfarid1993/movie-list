@@ -75,3 +75,17 @@ extension MoviesListViewModel {
         }
     }
 }
+
+// MARK: - Data Source
+
+extension MoviesListViewModel {
+    
+    func getGenres(_ genres: [Int]) -> [String] {
+        var genresNames: [String] = []
+        genres.forEach { genreId in
+            guard let genre = self.genres.first(where: {$0.id == genreId}) else { return }
+            genresNames.append(genre.name)
+        }
+        return genresNames
+    }
+}

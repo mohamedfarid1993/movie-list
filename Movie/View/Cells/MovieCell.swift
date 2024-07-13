@@ -43,7 +43,7 @@ class MovieCell: UICollectionViewCell {
         ])
     }
 
-    func configure(with movie: Movie) {
+    func configure(with movie: Movie, genres: [String]) {
         titleLabel.text = movie.title
         ImageProvider.loadImage(with: movie.posterPathURL, into: self.imageView)
     }
