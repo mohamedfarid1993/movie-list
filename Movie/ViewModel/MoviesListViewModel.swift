@@ -28,6 +28,10 @@ class MoviesListViewModel: ObservableObject {
     @Published var currentPage: Int = 1
     @Published var totalPages: Int = 1
     @Published var movies: [Movie] = []
+    
+    @Published var currentSearchedPage: Int = 1
+    @Published var totalSearchedPages: Int = 1
+    @Published var searchedMovies: [Movie] = []
 
     private var genres: [Genre] = []
     private let api: API.Type
@@ -78,15 +82,15 @@ extension MoviesListViewModel {
     // MARK: Search Movies
     
     func searchMovies(with text: String) {
-        guard self.currentPage <= self.totalPages else { return }
+        guard self.currentSearchedPage <= self.currentSearchedPage else { return }
         self.state = .loading
         Task {
             do {
                 let response = try await self.api.searchMovies(with: text, in: self.currentPage)
-                self.movies += response.movies
+                self.searchedMovies += response.movies
                 self.state = .loaded
-                self.currentPage += 1
-                self.totalPages = response.totalPages
+                self.currentSearchedPage += 1
+                self.totalSearchedPages = response.totalPages
             } catch {
                 self.state = .failed(error: error, genresFetchingFailed: false)
             }
