@@ -60,7 +60,8 @@ extension MoviesListViewController {
     @objc private func applyCurrentTheme() {
         let theme = ThemeManager.shared.currentTheme
         self.view.backgroundColor = theme.backgroundColor
-        self.collectionView.reloadData()
+        guard let collectionView = collectionView else { return }
+        collectionView.reloadData()
     }
 }
 
@@ -171,6 +172,7 @@ extension MoviesListViewController {
         }
         
         self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        self.collectionView.delegate = self
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.reuseIdentifier)
         self.view.addSubview(self.collectionView)
@@ -206,5 +208,18 @@ extension MoviesListViewController {
         }
 
         return section
+    }
+}
+
+// MARK: - Collection View Delegate Methods
+
+extension MoviesListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let movie = dataSource.itemIdentifier(for: indexPath) else { return }
+        
+        let movieDetailsViewController = MovieDetailsViewController(movie: movie,
+                                                                    genres: self.viewModel.getGenres(movie.genreIDS))
+        self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }

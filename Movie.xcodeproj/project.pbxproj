@@ -47,6 +47,7 @@
 		72A561792C42A65A00AC653F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561782C42A65A00AC653F /* MovieCell.swift */; };
 		72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617A2C42B58C00AC653F /* GenresResponse.swift */; };
 		72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617C2C42B5CB00AC653F /* Genre.swift */; };
+		72A5617F2C42BF8E00AC653F /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		72A561782C42A65A00AC653F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		72A5617A2C42B58C00AC653F /* GenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresResponse.swift; sourceTree = "<group>"; };
 		72A5617C2C42B5CB00AC653F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				72A561772C42A64F00AC653F /* Cells */,
 				720EB2D72C3EB6D800A37AD2 /* MoviesListViewController.swift */,
+				72A5617E2C42BF8E00AC653F /* MovieDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				720EB32D2C3F189F00A37AD2 /* MoviesRouter.swift in Sources */,
 				720EB3082C3ECA0E00A37AD2 /* ThemeManager.swift in Sources */,
 				720EB2D42C3EB6D800A37AD2 /* AppDelegate.swift in Sources */,
+				72A5617F2C42BF8E00AC653F /* MovieDetailsViewController.swift in Sources */,
 				722B40322C42963200130227 /* Movie.swift in Sources */,
 				720EB3232C3F189F00A37AD2 /* ImageProvider.swift in Sources */,
 				720EB32B2C3F189F00A37AD2 /* URLRequestBuilder.swift in Sources */,
