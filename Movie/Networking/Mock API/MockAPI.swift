@@ -15,4 +15,8 @@ extension MockAPI: API {
     static func getMovies(in page: Int) async throws -> MoviesResponse {
         MoviesResponse.fake()
     }
+    
+    static func getGenres() async throws -> GenresResponse {
+        GenresResponse.fake()
+    }
 }

@@ -13,10 +13,12 @@ enum MoviesRouter: URLRequestBuilder {
     // MARK: - APIs
     
     case getPopularMovies(page: Int)
+    case getGenres
     
     // MARK: Properties
     
     static let moviesPath = "movie/popular"
+    static let genresPath = "genre/movie/list"
 }
 
 extension MoviesRouter {
@@ -25,6 +27,8 @@ extension MoviesRouter {
         switch self {
         case .getPopularMovies:
             return MoviesRouter.moviesPath
+        case .getGenres:
+            return MoviesRouter.genresPath
         }
     }
     
@@ -32,6 +36,8 @@ extension MoviesRouter {
         switch self {
         case .getPopularMovies(let page):
             return [Constants.NetworkingConfigs.pageParameterKey: page]
+        case .getGenres:
+            return [:]
         }
     }
     

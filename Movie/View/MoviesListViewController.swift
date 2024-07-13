@@ -45,7 +45,7 @@ class MoviesListViewController: UIViewController {
         self.addThemeChangerObserver()
         self.addSubviews()
         self.subscribeToViewModelStatePublisher()
-        self.viewModel.getMovies()
+        self.viewModel.getGenres()
     }
 }
 
@@ -77,8 +77,8 @@ extension MoviesListViewController {
                     self.handleLoading()
                 case .loaded:
                     self.handleLoaded()
-                case .failed(let error):
-                    self.handleFailed(error)
+                case .failed(let error, let genresFetchingFailed):
+                    self.handleFailed(error, genresFetchingFailed)
                 }
             }
             .store(in: &self.subscriptions)
@@ -111,20 +111,20 @@ extension MoviesListViewController {
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    private func handleFailed(_ error: Error) {
+    private func handleFailed(_ error: Error, _ genresFetchingFailed: Bool) {
         self.hideActivityIndicator()
         self.collectionView.isScrollEnabled = false
-        self.showErrorAlert(with: error.localizedDescription)
+        self.showErrorAlert(with: error.localizedDescription, genresFetchingFailed)
     }
     
-    private func showErrorAlert(with message: String) {
+    private func showErrorAlert(with message: String, _ genresFetchingFailed: Bool) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
-            self?.viewModel.getMovies()
+            genresFetchingFailed ? self?.viewModel.getGenres() : self?.viewModel.getMovies()
         }
         alertController.addAction(retryAction)
         

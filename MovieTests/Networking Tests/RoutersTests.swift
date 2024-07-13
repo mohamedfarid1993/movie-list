@@ -22,4 +22,13 @@ class RoutersTests: XCTestCase {
         XCTAssertEqual(getMoviesRequest.method, .get)
         XCTAssertEqual(page, getMoviesRequest.parameters?[Constants.NetworkingConfigs.pageParameterKey] as? Int)
     }
+    
+    // MARK: Get Genres Request Test
+    
+    func testGetGenresRequest() {
+        let getGenresRequest = MoviesRouter.getGenres
+        
+        XCTAssertEqual(getGenresRequest.path, MoviesRouter.genresPath)
+        XCTAssertEqual(getGenresRequest.method, .get)
+    }
 }

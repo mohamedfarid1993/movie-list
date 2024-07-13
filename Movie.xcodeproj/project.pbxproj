@@ -45,6 +45,8 @@
 		72A561732C42A35800AC653F /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561722C42A35800AC653F /* AnalyticsManager.swift */; };
 		72A561762C42A56500AC653F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 72A561752C42A56500AC653F /* SnapKit */; };
 		72A561792C42A65A00AC653F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A561782C42A65A00AC653F /* MovieCell.swift */; };
+		72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617A2C42B58C00AC653F /* GenresResponse.swift */; };
+		72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5617C2C42B5CB00AC653F /* Genre.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		72A561702C42A2EE00AC653F /* ConsoleAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleAnalyticsService.swift; sourceTree = "<group>"; };
 		72A561722C42A35800AC653F /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		72A561782C42A65A00AC653F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		72A5617A2C42B58C00AC653F /* GenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresResponse.swift; sourceTree = "<group>"; };
+		72A5617C2C42B5CB00AC653F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +304,9 @@
 			isa = PBXGroup;
 			children = (
 				722B402F2C42960F00130227 /* MoviesResponse.swift */,
+				72A5617A2C42B58C00AC653F /* GenresResponse.swift */,
 				722B40312C42963200130227 /* Movie.swift */,
+				72A5617C2C42B5CB00AC653F /* Genre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 				720EB30A2C3ECB4400A37AD2 /* Notifications.swift in Sources */,
 				720EB3242C3F189F00A37AD2 /* CustomError.swift in Sources */,
 				720EB2D82C3EB6D800A37AD2 /* MoviesListViewController.swift in Sources */,
+				72A5617D2C42B5CB00AC653F /* Genre.swift in Sources */,
 				720EB32C2C3F189F00A37AD2 /* APIRouter.swift in Sources */,
 				720EB32A2C3F189F00A37AD2 /* HandleAlamofireResponse.swift in Sources */,
 				720EB3062C3EC9E000A37AD2 /* Theme.swift in Sources */,
@@ -494,6 +501,7 @@
 				722B40322C42963200130227 /* Movie.swift in Sources */,
 				720EB3232C3F189F00A37AD2 /* ImageProvider.swift in Sources */,
 				720EB32B2C3F189F00A37AD2 /* URLRequestBuilder.swift in Sources */,
+				72A5617B2C42B58C00AC653F /* GenresResponse.swift in Sources */,
 				720EB3262C3F189F00A37AD2 /* MockAPI.swift in Sources */,
 				722B40302C42960F00130227 /* MoviesResponse.swift in Sources */,
 				72A5616A2C429B2800AC653F /* MoviesListViewModel.swift in Sources */,

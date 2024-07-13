@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class MoviesListViewModel: ObservableObject {
     enum State: Equatable {
-        case loading, loaded, failed(error: Error)
+        case loading, loaded, failed(error: Error, genresFetchingFailed: Bool)
         
         static func == (lhs: State, rhs: State) -> Bool {
             switch (lhs, rhs) {
@@ -29,6 +29,7 @@ class MoviesListViewModel: ObservableObject {
     @Published var totalPages: Int = 1
     @Published var movies: [Movie] = []
 
+    private var genres: [Genre] = []
     private let api: API.Type
     
     // MARK: Initializers
@@ -42,7 +43,21 @@ class MoviesListViewModel: ObservableObject {
 
 extension MoviesListViewModel {
     
-    // MARK: Get Characters
+    // MARK: Get Genres
+
+    func getGenres() {
+        Task {
+            do {
+                let response = try await self.api.getGenres()
+                self.genres = response.genres
+                self.getMovies()
+            } catch {
+                self.state = .failed(error: error, genresFetchingFailed: true)
+            }
+        }
+    }
+    
+    // MARK: Get Movies
     
     func getMovies() {
         guard self.currentPage <= self.totalPages else { return }
@@ -55,7 +70,7 @@ extension MoviesListViewModel {
                 self.currentPage += 1
                 self.totalPages = response.totalPages
             } catch {
-                self.state = .failed(error: error)
+                self.state = .failed(error: error, genresFetchingFailed: false)
             }
         }
     }
