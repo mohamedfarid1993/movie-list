@@ -96,7 +96,9 @@ extension MovieCell {
     
     func configure(with movie: Movie, genres: [String]) {
         self.titleLabel.text = movie.title
-        ImageProvider.loadImage(with: movie.posterPathURL, into: self.movieImageView)
+        ImageProvider.loadImage(with: movie.posterPathURL,
+                                into: self.movieImageView,
+                                using: ImageProvider.Configuration(placeholder: UIImage(named: "movie-placeholder")))
         if let productionYear = movie.productionYear {
             yearLabel.text = productionYear
         } else {

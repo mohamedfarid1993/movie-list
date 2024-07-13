@@ -82,9 +82,14 @@ extension MoviesListViewModel {
     
     // MARK: Search Movies
     
-    func searchMovies(with text: String) {
+    func searchMovies(with text: String, shouldResetSearch: Bool) {
         guard self.currentSearchedPage <= self.currentSearchedPage else { return }
         self.state = .loading
+        
+        if shouldResetSearch {
+            self.resetSearch()
+        }
+        
         Task {
             do {
                 let response = try await self.api.searchMovies(with: text, in: self.currentSearchedPage)
@@ -110,5 +115,11 @@ extension MoviesListViewModel {
             genresNames.append(genre.name)
         }
         return genresNames
+    }
+    
+    func resetSearch() {
+        self.searchedMovies = []
+        self.currentSearchedPage = 1
+        self.totalSearchedPages = 1
     }
 }

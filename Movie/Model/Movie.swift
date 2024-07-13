@@ -14,13 +14,15 @@ struct Movie: CodableInit, Hashable {
     let originalLanguage: String
     let originalTitle, overview: String
     let popularity: Double
-    let posterPath, releaseDate, title: String
+    let posterPath: String?
+    let releaseDate, title: String
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
     
     var posterPathURL: URL? {
-        URL(string: Constants.NetworkingConfigs.imagesPath + posterPath)
+        guard let posterPath = posterPath else { return nil }
+        return URL(string: Constants.NetworkingConfigs.imagesPath + posterPath)
     }
     
     var productionYear: String? {

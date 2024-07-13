@@ -205,7 +205,9 @@ extension MovieDetailsViewController {
         self.configureRatingTitle()
         self.configureVotingTitle()
         self.configureOverviewTitle()
-        ImageProvider.loadImage(with: self.movie.posterPathURL, into: self.movieImageView)
+        ImageProvider.loadImage(with: movie.posterPathURL,
+                                into: self.movieImageView,
+                                using: ImageProvider.Configuration(placeholder: UIImage(named: "movie-placeholder")))
     }
     
     private func configureReleaseDataTitle() {
@@ -257,6 +259,7 @@ extension MovieDetailsViewController {
     }
     
     private func configureOverviewTitle() {
+        guard !self.movie.overview.isEmpty else { return }
         let overviewBoldText = "Overview:"
         let overviewText = " \(self.movie.overview)"
         let attributedString = NSMutableAttributedString(string: "\(overviewBoldText) \(overviewText)")

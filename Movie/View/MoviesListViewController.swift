@@ -180,7 +180,7 @@ extension MoviesListViewController: UISearchResultsUpdating, UISearchBarDelegate
             self.updateSnapshot(with: self.viewModel.movies)
         } else {
             self.viewModel.isSearching = true
-            self.viewModel.searchMovies(with: searchText)
+            self.viewModel.searchMovies(with: searchText, shouldResetSearch: true)
         }
     }
     
@@ -259,7 +259,7 @@ extension MoviesListViewController {
                lastItem.indexPath.row == self.viewModel.movies.count - 1,
                self.viewModel.state != .loading {
                 if self.viewModel.isSearching, let text = self.searchController.searchBar.text {
-                    self.viewModel.searchMovies(with: text)
+                    self.viewModel.searchMovies(with: text, shouldResetSearch: false)
                 } else {
                     self.viewModel.getMovies()
                 }
