@@ -25,11 +25,11 @@ class MoviesListViewModel: ObservableObject {
     // MARK: Properties
     
     @Published var state: State = .loading
-    
+    @Published var currentPage: Int = 1
+    @Published var totalPages: Int = 1
+    @Published var movies: [Movie] = []
+
     private let api: API.Type
-    
-    private var movies: [Movie] = []
-    private var page = 1
     
     // MARK: Initializers
     
@@ -45,11 +45,15 @@ extension MoviesListViewModel {
     // MARK: Get Characters
     
     func getMovies() {
+        guard self.currentPage <= self.totalPages else { return }
+        self.state = .loading
         Task {
             do {
-                let response = try await self.api.getMovies(in: self.page)
+                let response = try await self.api.getMovies(in: self.currentPage)
                 self.movies += response.movies
                 self.state = .loaded
+                self.currentPage += 1
+                self.totalPages = response.totalPages
             } catch {
                 self.state = .failed(error: error)
             }

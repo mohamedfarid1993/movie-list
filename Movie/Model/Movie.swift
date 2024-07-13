@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Movie: CodableInit {
+struct Movie: CodableInit, Hashable {
     let adult: Bool
-    let backdropPath: String
     let genreIDS: [Int]
     let id: Int
     let originalLanguage: String
@@ -19,10 +18,13 @@ struct Movie: CodableInit {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    
+    var posterPathURL: URL? {
+        URL(string: Constants.NetworkingConfigs.imagesPath + posterPath)
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult, id, title, video
-        case backdropPath = "backdrop_path"
         case genreIDS = "genre_ids"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
@@ -38,7 +40,6 @@ struct Movie: CodableInit {
 
 extension Movie {
     static func fake(adult: Bool = true,
-                     backdropPath: String = "",
                      genreIDS: [Int] = [1],
                      id: Int = 1,
                      originalLanguage: String = "en",
@@ -52,7 +53,6 @@ extension Movie {
                      voteAverage: Double = 1.2,
                      voteCount: Int = 10000) -> Movie {
         Movie(adult: adult,
-              backdropPath: backdropPath,
               genreIDS: genreIDS,
               id: id,
               originalLanguage: originalLanguage,
