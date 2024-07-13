@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class MoviesListViewModel: ObservableObject {
     enum State: Equatable {
-        case loading, loaded, failed(error: Error, genresFetchingFailed: Bool)
+        case loading, loaded(isSearching: Bool), failed(error: Error, genresFetchingFailed: Bool)
         
         static func == (lhs: State, rhs: State) -> Bool {
             switch (lhs, rhs) {
@@ -32,6 +32,7 @@ class MoviesListViewModel: ObservableObject {
     @Published var currentSearchedPage: Int = 1
     @Published var totalSearchedPages: Int = 1
     @Published var searchedMovies: [Movie] = []
+    var isSearching = false
 
     private var genres: [Genre] = []
     private let api: API.Type
@@ -70,7 +71,7 @@ extension MoviesListViewModel {
             do {
                 let response = try await self.api.getMovies(in: self.currentPage)
                 self.movies += response.movies
-                self.state = .loaded
+                self.state = .loaded(isSearching: false)
                 self.currentPage += 1
                 self.totalPages = response.totalPages
             } catch {
@@ -86,9 +87,9 @@ extension MoviesListViewModel {
         self.state = .loading
         Task {
             do {
-                let response = try await self.api.searchMovies(with: text, in: self.currentPage)
+                let response = try await self.api.searchMovies(with: text, in: self.currentSearchedPage)
                 self.searchedMovies += response.movies
-                self.state = .loaded
+                self.state = .loaded(isSearching: true)
                 self.currentSearchedPage += 1
                 self.totalSearchedPages = response.totalPages
             } catch {

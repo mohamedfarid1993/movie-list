@@ -78,8 +78,8 @@ extension MoviesListViewController {
                 switch self.viewModel.state {
                 case .loading:
                     self.handleLoading()
-                case .loaded:
-                    self.handleLoaded()
+                case .loaded(let isSearching):
+                    isSearching ? self.handleLoadedSearch() : self.handleLoaded()
                 case .failed(let error, let genresFetchingFailed):
                     self.handleFailed(error, genresFetchingFailed)
                 }
@@ -110,6 +110,20 @@ extension MoviesListViewController {
         } else {
             snapshot.appendSections([0])
             snapshot.appendItems(self.viewModel.movies)
+        }
+        self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func handleLoadedSearch() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Movie>()
+        if self.viewModel.currentSearchedPage > 2 {
+            snapshot = self.dataSource.snapshot()
+            let existingMovies = snapshot.itemIdentifiers
+            let newMovies = self.viewModel.searchedMovies.filter { !existingMovies.contains($0) }
+            snapshot.appendItems(newMovies)
+        } else {
+            snapshot.appendSections([0])
+            snapshot.appendItems(self.viewModel.searchedMovies)
         }
         self.dataSource.apply(snapshot, animatingDifferences: true)
     }
@@ -161,17 +175,12 @@ extension MoviesListViewController: UISearchResultsUpdating, UISearchBarDelegate
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        self.filterContentForSearchText(searchText)
-    }
-    
-    private func filterContentForSearchText(_ searchText: String) {
         if searchText.isEmpty {
+            self.viewModel.isSearching = false
             self.updateSnapshot(with: self.viewModel.movies)
         } else {
-            let filteredMovies = self.viewModel.movies.filter { movie in
-                return movie.title.lowercased().contains(searchText.lowercased())
-            }
-            self.updateSnapshot(with: filteredMovies)
+            self.viewModel.isSearching = true
+            self.viewModel.searchMovies(with: searchText)
         }
     }
     
@@ -183,6 +192,7 @@ extension MoviesListViewController: UISearchResultsUpdating, UISearchBarDelegate
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.isSearching = false
         self.updateSnapshot(with: self.viewModel.movies)
     }
 }
@@ -248,7 +258,11 @@ extension MoviesListViewController {
             if let lastItem = visibleItems.last,
                lastItem.indexPath.row == self.viewModel.movies.count - 1,
                self.viewModel.state != .loading {
-                self.viewModel.getMovies()
+                if self.viewModel.isSearching, let text = self.searchController.searchBar.text {
+                    self.viewModel.searchMovies(with: text)
+                } else {
+                    self.viewModel.getMovies()
+                }
             }
         }
 
